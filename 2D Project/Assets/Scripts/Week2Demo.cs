@@ -7,6 +7,10 @@ public class Week2Demo : MonoBehaviour
 
     public Rigidbody2D rigidbody2D;
 
+    public GameObject spawnPrefab;
+
+    public Rigidbody2D spawnedRB;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,8 +20,10 @@ public class Week2Demo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(favNum);
+        spawnedRB = Instantiate(rigidbody2D);
 
-        rigidbody2D.gravityScale = -30f;
+        spawnedRB.gravityScale = Random.value;
+
+        //Destroy(rigidbody2D);
     }
 }
