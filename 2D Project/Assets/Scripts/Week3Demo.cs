@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class Week3Demo : MonoBehaviour
 {
+    public float speed = 4f;
+
     public Vector2 movement = Vector2.zero;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,7 +17,9 @@ public class Week3Demo : MonoBehaviour
     void Update()
     {
         //  Player Movement
-        transform.position = transform.position + (Vector3)movement;
+        Vector2 playerMovement = movement * speed * Time.deltaTime;
+
+        transform.position = transform.position + (Vector3)playerMovement;
     }
 
     public void OnMove(InputAction.CallbackContext context)
