@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D rBoday;
 
+    public TextMesh velocityLabel;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +25,8 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = direction * speed * Time.deltaTime;
 
         transform.Translate(velocity);
+
+        velocityLabel.text = string.Format("{0}", velocity.magnitude);
 
         //transform.Translate(-velocity);
     }
@@ -43,4 +47,14 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Found Gold");
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(rBoday.transform.position, direction * speed);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position, transform.localScale.x);
+    }
+
 }
