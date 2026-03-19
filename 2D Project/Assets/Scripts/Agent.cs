@@ -9,7 +9,7 @@ public abstract class Agent : MonoBehaviour
     Vector2 acceleration;
 
     [SerializeField]
-    float maxSpeed = 5f;
+    float maxSpeed = 5f, maxForce = 2f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +21,9 @@ public abstract class Agent : MonoBehaviour
     void Update()
     {
         acceleration = CalcForces();
+
+        //  Clamp acceleration
+        acceleration = Vector2.ClampMagnitude(acceleration, maxForce);
 
         //  Add this frames forces to the agent
         velocity += acceleration * Time.deltaTime;
