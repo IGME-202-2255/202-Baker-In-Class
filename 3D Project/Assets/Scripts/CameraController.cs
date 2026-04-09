@@ -7,6 +7,9 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     Camera myCamera;
 
+    [SerializeField]
+    float mouseLookSen = .2f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,7 +24,7 @@ public class CameraController : MonoBehaviour
 
     public void onLook(InputAction.CallbackContext context)
     {
-        Vector2 inputData = context.ReadValue<Vector2>();
+        Vector2 inputData = context.ReadValue<Vector2>() * mouseLookSen;
 
         //  Look Up/Down
         transform.Rotate(0, inputData.x, 0, Space.World);
