@@ -20,7 +20,7 @@ public class ObjectClicker : MonoBehaviour
         {
             Debug.Log(hit.transform.gameObject.name);
 
-            hit.transform.localScale = Vector3.one * 20;
+            hit.transform.localScale = Vector3.one * 2;
         }
     }
 

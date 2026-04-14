@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
-    Camera myCamera;
+    Transform myCamera;
 
     [SerializeField]
     float mouseLookSen = .2f;
@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
         transform.Rotate(0, inputData.x, 0, Space.World);
 
         //  Look Right/Left
-        myCamera.transform.Rotate(inputData.y, 0, 0);
+        myCamera.Rotate(inputData.y, 0, 0);
     }
 
     public void OnFocus()
