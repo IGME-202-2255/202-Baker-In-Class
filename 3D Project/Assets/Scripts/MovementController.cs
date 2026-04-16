@@ -38,6 +38,8 @@ public class MovementController : MonoBehaviour
 
             currectForward = surfaceForward * (inputDirection.z * moveSpeed * Time.deltaTime);
 
+
+
             surfaceRight = Vector3.Cross(hit.normal, surfaceForward);
 
             currectRight = surfaceRight * (inputDirection.x * moveSpeed * Time.deltaTime);
